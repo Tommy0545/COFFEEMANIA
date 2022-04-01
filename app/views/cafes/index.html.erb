@@ -1,2 +1,13 @@
-<h1>Cafes#index</h1>
-<p>Find me in app/views/cafes/index.html.erb</p>
+<h1>カフェ投稿一覧</h1>
+<div class="table" >
+  <% @cafe.each do |cafe| %>
+    <div class="md-3">
+      <div class="row">
+        <p><%= link_to cafe.user_id,user_path(:id) %></p>
+        <p><%= link_to cafe.store_name,cafe_path(cafe.id) %></p>
+        <p><%= cafe.location %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+

@@ -6,10 +6,12 @@ Rails.application.routes.draw do
     resources :comments, only: [:create,:destroy]
     resource :favorites, only: [:create, :destroy]
   end
-  resources :cafes, only: [:new,:index,:show,:edit]do
+  resources :cafes, only: [:new,:create,:index,:show,:edit]do
+
     resources :comments, only: [:create,:destroy]
     resource :favorites, only: [:create, :destroy]
   end
+
   resources :users, only: [:show,:edit]
 
 

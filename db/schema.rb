@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2022_03_30_055527) do
     t.text "site_url"
     t.datetime "create_date"
     t.datetime "update_date"
+    t.integer "user_id"
+    t.integer "user_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

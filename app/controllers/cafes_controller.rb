@@ -1,13 +1,30 @@
 class CafesController < ApplicationController
+  before_action :authenticate_user!
   def new
+    @cafe=Cafe.new
+  end
+
+  def create
+    @cafe=Cafe.new(cafe_params)
+    @cafe.user_id=current_user.id
+    @cafe.save
+    redirect_to cafes_path
   end
 
   def index
+    @cafe=Cafe.all
   end
 
   def show
+    @cafe=Cafe.find(params[:id])
   end
 
   def edit
+  end
+
+  private
+
+  def cafe_params
+    params.require(:cafe).permit(:image, :store_name, :location, :introduction, :site_url)
   end
 end
