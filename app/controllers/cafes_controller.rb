@@ -1,5 +1,5 @@
 class CafesController < ApplicationController
-  before_action :authenticate_user!
+  
   def new
     @cafe=Cafe.new
   end

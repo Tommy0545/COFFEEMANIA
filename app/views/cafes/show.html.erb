@@ -1,5 +1,9 @@
 <div class="container px-5 px-sm-0">
-  <h1>カフェ投稿詳細</h1>
+  <h1>
+    <b>
+      カフェ投稿詳細
+    </b>
+  </h1>
 
   <table class="table table-hover table-inverse">
     <div class="form-group">
@@ -20,7 +24,7 @@
     </div>
     <div class="form-group">
       <label for="site_url">サイトURL</label>
-        <b><%= @cafe.site_url %></b>
+        <b><%= link_to @cafe.site_url , @cafe.site_url %></b>
     </div>
 
     <% if @cafe.user == current_user %>
