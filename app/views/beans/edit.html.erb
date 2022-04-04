@@ -1,2 +1,44 @@
-<h1>Beans#edit</h1>
-<p>Find me in app/views/beans/edit.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <h1>
+    <b>
+      コーヒー豆編集画面
+    </b>
+  </h1>
+
+  <table class="table table-hover table-inverse">
+        <%= form_with model: @bean do |f| %>
+          <div class="form-group">
+            <label for="image">画像アップロード</label><br>
+            <%= f.file_field :image, accept: "image/*" %>
+          </div>
+          <div class="form-group">
+            <label for="beans_name">コーヒー豆</label><br>
+            <%= f.text_field :beans_name %>
+          </div>
+          <div class="form-group">
+            <label for="loast_lebel">ローストレベル</label><br>
+            <%= f.text_field :loast_lebel %>
+          </div>
+          <div class="form-group">
+            <label for="origin">産地</label><br>
+            <%= f.text_field :origin %>
+          </div>
+          <div class="form-group">
+            <label for="process">プロセス</label><br>
+            <%= f.text_field :process %>
+          </div>
+          <div class="form-group">
+            <label for="feedback">感想</label><br>
+            <%= f.text_area :feedback %>
+          </div>
+          <div class="form-group">
+            <label for="purchase">購入場所（サイトURL）</label><br>
+            <%= f.text_field :purchase %>
+          </div>
+          <div class="form-group">
+            <%= f.submit '保存',class: "btn btn-success" %>
+            <%= link_to '戻る', bean_path(@bean.id), class: "btn btn-primary" %>
+          </div>
+        <% end %>
+  </table>
+</div>

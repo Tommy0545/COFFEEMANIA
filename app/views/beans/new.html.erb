@@ -1,2 +1,43 @@
-<h1>Beans#new</h1>
-<p>Find me in app/views/beans/new.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <h1>
+    <b>
+    　コーヒー豆投稿画面
+    </b>
+  </h1>
+
+  <table class="table table-hover table-inverse">
+        <%= form_with model: @bean,url: beans_path do |f| %>
+          <div class="form-group">
+            <label for="image">画像アップロード</label><br>
+            <%= f.file_field :image, accept: "image/*" %>
+          </div>
+          <div class="form-group">
+            <label for="beans_name">コーヒー豆</label><br>
+            <%= f.text_field :beans_name %>
+          </div>
+          <div class="form-group">
+            <label for="loast_lebel">ローストレベル</label><br>
+            <%= f.text_field :loast_lebel %>
+          </div>
+          <div class="form-group">
+            <label for="origin">産地</label><br>
+            <%= f.text_field :origin %>
+          </div>
+          <div class="form-group">
+            <label for="process">プロセス</label><br>
+            <%= f.text_field :process %>
+          </div>
+          <div class="form-group">
+            <label for="feedback">感想</label><br>
+            <%= f.text_area :feedback %>
+          </div>
+          <div class="form-group">
+            <label for="purchase">購入場所（サイトURL）</label><br>
+            <%= f.text_field :purchase %>
+          </div>
+          <div class="form-group">
+            <%= f.submit '投稿',class: "btn btn-success" %>
+          </div>
+        <% end %>
+  </table>
+</div>

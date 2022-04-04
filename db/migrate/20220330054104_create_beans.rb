@@ -12,6 +12,9 @@ class CreateBeans < ActiveRecord::Migration[6.1]
       t.datetime :create_date
       t.datetime :update_date
 
+      t.integer :user_id
+      t.integer :user_name
+
       t.timestamps
     end
   end

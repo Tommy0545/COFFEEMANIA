@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2022_03_30_055527) do
     t.string "purchase"
     t.datetime "create_date"
     t.datetime "update_date"
+    t.integer "user_id"
+    t.integer "user_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -69,6 +71,11 @@ ActiveRecord::Schema.define(version: 2022_03_30_055527) do
   end
 
   create_table "comments", force: :cascade do |t|
+    t.integer "cafe_id"
+    t.integer "bean_id"
+    t.string "user_name"
+    t.datetime "create_date"
+    t.datetime "update_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

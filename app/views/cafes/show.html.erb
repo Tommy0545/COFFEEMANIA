@@ -5,6 +5,13 @@
     </b>
   </h1>
 
+  <div class="container px-5 px-sm-0">
+    <% if @cafe.user != current_user %>
+    <b><%= @cafe.user.user_name %></b>さんの投稿
+
+    <% end %>
+  </div>
+
   <table class="table table-hover table-inverse">
     <div class="form-group">
       <label for="image"></label><br>
@@ -24,12 +31,12 @@
     </div>
     <div class="form-group">
       <label for="site_url">サイトURL</label>
-        <b><%= link_to @cafe.site_url , @cafe.site_url %></b>
+        <b><%= link_to @cafe.site_url , @cafe.site_url, class: "ml-5" %></b>
     </div>
-
     <% if @cafe.user == current_user %>
-      <%= link_to "削除", cafes_path(@cafe), method: :delete, class: "btn btn-danger" %>
+        <%= link_to "編集する", edit_cafe_path(@cafe.id), class: "btn btn-success mr-2" %>
+        <%= link_to "削除", destroy_cafe_path(@cafe.id), method: :delete,"data-confirm" => "本当に削除しますか？", class: "btn btn-danger mr-2" %>
     <% end %>
-
+    <%= link_to "戻る", cafes_path, class: "btn btn-primary" %>
   </table>
 </div>

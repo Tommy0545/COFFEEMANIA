@@ -1,2 +1,50 @@
-<h1>Beans#show</h1>
-<p>Find me in app/views/beans/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <h1>
+    <b>
+      コーヒー豆投稿詳細
+    </b>
+  </h1>
+
+  <div class="container px-5 px-sm-0">
+    <% if @bean.user != current_user %>
+    <b><%= @bean.user.user_name %></b>さんの投稿
+
+    <% end %>
+  </div>
+
+  <table class="table table-hover table-inverse">
+    <div class="form-group">
+      <label for="image"></label><br>
+        <%= image_tag @bean.get_image,size: '400x300' %>
+    </div>
+    <div class="form-group">
+      <label for="beans_name">コーヒー豆</label>
+      <b><%= @bean.beans_name %></b>
+    </div>
+    <div class="form-group">
+      <label for="loast_lebel">ローストレベル</label></label>
+        <b><%= @bean.loast_lebel %></b>
+    </div>
+    <div class="form-group">
+      <label for="origin">産地</label>
+        <b><%= @bean.origin %></b>
+    </div>
+    <div class="form-group">
+      <label for="process">プロセス</label>
+        <b><%= @bean.process %></b>
+    </div>
+    <div class="form-group">
+      <label for="feedback">感想</label>
+        <b><%= @bean.feedback %></b>
+    </div>
+    <div class="form-group">
+      <label for="purchase">購入場所（サイトURL)</label>
+        <b><%= link_to @bean.purchase , @bean.purchase, class: "ml-3" %></b>
+    </div>
+    <% if @bean.user == current_user %>
+        <%= link_to "編集する", edit_bean_path(@bean.id), class: "btn btn-success mr-2" %>
+        <%= link_to "削除", destroy_bean_path(@bean.id), method: :delete,"data-confirm" => "本当に削除しますか？", class: "btn btn-danger mr-2" %>
+    <% end %>
+    <%= link_to "戻る", beans_path, class: "btn btn-primary" %>
+  </table>
+</div>
