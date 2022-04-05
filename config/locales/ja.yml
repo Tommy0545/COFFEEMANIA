@@ -1,0 +1,7 @@
+ ja:
+    enums:
+      bean:
+        loast_lebel:
+          light: "LIGHT LOAST"
+          medium: "MEDIUM LOAST"
+          dark: "DARK LOAST"

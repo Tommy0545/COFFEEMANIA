@@ -12,4 +12,6 @@ class Bean < ApplicationRecord
     end
   end
 
+  enum loast_lebel:{light:0,medium:1,dark:2}
+
 end

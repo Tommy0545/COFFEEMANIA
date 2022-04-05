@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2022_03_30_055527) do
   create_table "beans", force: :cascade do |t|
     t.string "image"
     t.string "beans_name"
-    t.string "loast_lebel"
+    t.integer "loast_lebel"
     t.string "origin"
     t.string "process"
     t.text "feedback"

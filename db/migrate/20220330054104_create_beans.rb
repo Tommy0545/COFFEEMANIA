@@ -4,7 +4,7 @@ class CreateBeans < ActiveRecord::Migration[6.1]
 
       t.string :image
       t.string :beans_name
-      t.string :loast_lebel
+      t.integer :loast_lebel
       t.string :origin
       t.string :process
       t.text :feedback

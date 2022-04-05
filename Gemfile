@@ -60,3 +60,7 @@ gem 'carrierwave'
 gem 'devise'
 
 gem 'dotenv-rails'
+
+gem "enum_help"
+
+gem 'pry-byebug'

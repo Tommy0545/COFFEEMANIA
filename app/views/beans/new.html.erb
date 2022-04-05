@@ -17,7 +17,12 @@
           </div>
           <div class="form-group">
             <label for="loast_lebel">ローストレベル</label><br>
-            <%= f.text_field :loast_lebel %>
+            <%= f.radio_button:loast_lebel,Bean.loast_lebels.key(0) %>
+            <%= f.label:loast_lebel,Bean.loast_lebels_i18n[:light] %><br>
+            <%= f.radio_button:loast_lebel,Bean.loast_lebels.key(1) %>
+            <%= f.label:loast_lebel,Bean.loast_lebels_i18n[:medium] %><br>
+            <%= f.radio_button:loast_lebel,Bean.loast_lebels.key(2) %>
+            <%= f.label:loast_lebel,Bean.loast_lebels_i18n[:dark] %>
           </div>
           <div class="form-group">
             <label for="origin">産地</label><br>
