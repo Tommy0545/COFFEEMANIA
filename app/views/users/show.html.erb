@@ -1,2 +1,93 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <h1>
+    <% if @user == current_user %>
+    <b>マイページ</b>
+    <% else %>
+    <b><%= @user.user_name %></b>さんのマイページ
+    <% end %>
+  </h1>
+  <div class="row">
+    <div class="col-2">
+    <%= link_to "カフェを投稿", new_cafe_path, class: 'btn btn-info' %>
+    </div>
+    <div class="col-2">
+    <%= link_to "コーヒー豆を投稿",new_bean_path, class: 'btn btn-info' %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <table class="ml-3">
+     <tbody>
+      <tr>
+         <% if @user.profile_image.attached? %>
+          <%= image_tag @user.get_profile_image(300,300) %>
+        <% else %>
+          <%= image_tag 'no_image', size: "200x200" %>
+        <% end %>
+      </tr>
+      <tr>
+        <td>ユーザー名</td>
+        <td><%= @user.user_name %></td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td>好きなコーヒー豆</td>
+        <td><%= @user.favorite_bean %></td>
+      </tr>
+     </tbody>
+    </table>
+  </div>
+  <div class="mt-3">
+    <% if @user == current_user %>
+      <%= link_to "編集する", edit_user_path(current_user) , class: 'mr-3 btn btn-success' %>
+      <%= link_to "退会する",withdrawal_user_path,method: :patch,"data-confirm"=>"本当に退会しますか？",class: 'btn btn-danger' %>
+    <% end %>
+  </div>
+  <br>
+  <div class="row">
+   <div class="col-md-6">
+    <label for="cafe"><b>カフェ投稿</b></label>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Store Name</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cafes.each do |cafe| %>
+          <tr>
+            <td><%= link_to cafe.store_name,cafe_path(cafe.id) %></td>
+            <td><%= cafe.location %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+   </div>
+   <div class="col-md-6">
+    <label for="beans"><b>コーヒー豆投稿</b></label>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Beans Name</th>
+            <th>Origin</th>
+            <th>Process</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @beans.each do |bean| %>
+          <tr>
+            <td><%= link_to bean.beans_name,bean_path(bean.id) %></td>
+            <td><%= bean.origin  %></td>
+            <td><%= bean.process %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+   </div>
+  </div>
+</div>
+

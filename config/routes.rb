@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   end
   patch 'cafes/:id'=>'cafes#update'
   delete 'cafes/:id'=>'cafes#destroy',as: 'destroy_cafe'
+
   resources :users, only: [:show,:edit]
+  patch 'users/:id'=>'users#update'
+  patch 'users/:id'=>'users#withdrawal',as: 'withdrawal_user'
 
 
 

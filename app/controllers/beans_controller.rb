@@ -11,7 +11,7 @@ class BeansController < ApplicationController
   end
 
   def index
-    @bean=Bean.all
+    @beans=Bean.all
   end
 
   def show

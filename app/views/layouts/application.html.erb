@@ -20,15 +20,15 @@
             <ul class="navbar-nav ml-auto">
 
             <% if user_signed_in? %>
-              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'マイページ', user_path(:id), class: 'nav-link text-light' %></li>
+              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-light' %></li>
               <li class="nav-item m-1 rounded border border-muted"><%= link_to 'カフェ投稿一覧', cafes_path, class: 'nav-link text-light' %></li>
               <li class="nav-item m-1 rounded border border-muted"><%= link_to 'コーヒー豆投稿一覧', beans_path, class: 'nav-link text-light' %></li>
               <li class="nav-item m-1 rounded border border-muted"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-light' %></li>
             <% else %>
               <li class="nav-item m-1 rounded border border-muted"><%= link_to '新規登録', new_user_registration_path, class: 'nav-link text-light' %></li>
               <li class="nav-item m-1 rounded border border-muted"><%= link_to 'ログイン', new_user_session_path, class: 'nav-link text-light' %></li>
-              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'About', about_path, class: 'nav-link text-light' %></li>
               <li class="nav-item m-1 rounded border border-muted"><%= link_to 'Top', root_path, class: 'nav-link text-light' %></li>
+              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'About', about_path, class: 'nav-link text-light' %></li>
             <% end %>
             </ul>
           </div>
@@ -38,7 +38,11 @@
     <%= yield %>
     </main>
   </body>
+
+
   <footer class="mt-auto py-3 bg-dark">
 　    <div class="text-center text-light">Coffee makes you Happy</div>
 　</footer>
+
+
 </html>

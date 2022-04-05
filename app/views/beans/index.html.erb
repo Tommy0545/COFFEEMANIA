@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @bean.each do |bean| %>
+    <% @beans.each do |bean| %>
       <tr>
         <td><%= link_to bean.user.user_name, user_path(:id) %></td>
         <td><%= link_to bean.beans_name,bean_path(bean.id) %></td>

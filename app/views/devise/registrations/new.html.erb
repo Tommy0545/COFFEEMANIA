@@ -2,15 +2,6 @@
 
 <%= form_with model: @user, url: user_registration_path do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <th><%= f.label :名前 %></th><br>
-    <td>（姓）</td>
-    <td><%= f.text_field :last_name %></td>
-    <td>（名）</td>
-    <td><%= f.text_field :first_name %></td>
-  </div>
-
   <div class="field">
     <th><%= f.label :ユーザー名 %></th><br>
     <td><%= f.text_field :user_name %></td>

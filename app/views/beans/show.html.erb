@@ -7,8 +7,9 @@
 
   <div class="container px-5 px-sm-0">
     <% if @bean.user != current_user %>
-    <b><%= @bean.user.user_name %></b>さんの投稿
-
+      <b><%= @bean.user.user_name %></b>さんの投稿
+    <% else %>
+      <b>自分の投稿</b>
     <% end %>
   </div>
 

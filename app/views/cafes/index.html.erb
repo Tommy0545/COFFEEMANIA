@@ -13,15 +13,15 @@
     </tr>
   </thead>
   <tbody>
-    <% @cafe.each do |cafe| %>
+    <% @cafes.each do |cafe| %>
       <tr>
-        <td><%= link_to cafe.user.user_name, user_path(:id) %></td>
+        <td><%= link_to cafe.user.user_name, user_path(cafe.id) %></td>
         <td><%= link_to cafe.store_name,cafe_path(cafe.id) %></td>
         <td><%= cafe.location %></td>
       </tr>
     <% end %>
   </tbody>
-  
+
 </table>
 
 

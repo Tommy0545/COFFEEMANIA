@@ -12,7 +12,7 @@ class CafesController < ApplicationController
   end
 
   def index
-    @cafe=Cafe.all
+    @cafes=Cafe.all
   end
 
   def show
