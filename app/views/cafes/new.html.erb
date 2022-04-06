@@ -1,34 +1,34 @@
 <div class="container px-5 px-sm-0">
   <h1>
     <b>
-      カフェ投稿画面
+      Cafe Post
     </b>
   </h1>
 
   <table class="table table-hover table-inverse">
         <%= form_with model: @cafe,url: cafes_path do |f| %>
           <div class="form-group">
-            <label for="image">画像アップロード</label><br>
+            <label for="image">Cafe Image</label><br>
             <%= f.file_field :image, accept: "image/*" %>
           </div>
           <div class="form-group">
-            <label for="store_name">店舗名</label><br>
+            <label for="store_name">Store Name</label><br>
             <%= f.text_field :store_name %>
           </div>
           <div class="form-group">
-            <label for="location">所在地</label><br>
+            <label for="location">Location</label><br>
             <%= f.text_field :location %>
           </div>
           <div class="form-group">
-            <label for="introduction">紹介</label><br>
+            <label for="introduction">Introduction</label><br>
             <%= f.text_area :introduction %>
           </div>
           <div class="form-group">
-            <label for="site_url">サイトURL</label><br>
+            <label for="site_url">Site URL</label><br>
             <%= f.text_field :site_url %>
           </div>
           <div class="form-group">
-            <%= f.submit '投稿',class: "btn btn-success" %>
+            <%= f.submit 'POST',class: "btn btn-success" %>
           </div>
         <% end %>
   </table>

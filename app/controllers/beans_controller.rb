@@ -12,10 +12,12 @@ class BeansController < ApplicationController
 
   def index
     @beans=Bean.all
+    
   end
 
   def show
     @bean=Bean.find(params[:id])
+    @bean_comment=BeanComment.new
   end
 
   def edit

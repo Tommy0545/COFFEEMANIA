@@ -1,19 +1,11 @@
 <div class="container">
   <h1>
     <% if @user == current_user %>
-    <b>マイページ</b>
+    <b>My Page</b>
     <% else %>
-    <b><%= @user.user_name %></b>さんのマイページ
+    <b><%= @user.user_name %></b>'s Page
     <% end %>
   </h1>
-  <div class="row">
-    <div class="col-2">
-    <%= link_to "カフェを投稿", new_cafe_path, class: 'btn btn-info' %>
-    </div>
-    <div class="col-2">
-    <%= link_to "コーヒー豆を投稿",new_bean_path, class: 'btn btn-info' %>
-    </div>
-  </div>
   <br>
   <div class="row">
     <table class="ml-3">
@@ -26,16 +18,18 @@
         <% end %>
       </tr>
       <tr>
-        <td>ユーザー名</td>
-        <td><%= @user.user_name %></td>
+        <td>User name</td>
+        <td><b><%= @user.user_name %></b></td>
       </tr>
       <tr>
-        <td>メールアドレス</td>
-        <td><%= @user.email %></td>
+        <% if @user == current_user %>
+          <td>E-mail</td>
+          <td><b><%= @user.email %></b></td>
+        <% end %>
       </tr>
       <tr>
-        <td>好きなコーヒー豆</td>
-        <td><%= @user.favorite_bean %></td>
+        <td>Favorite Beans</td>
+        <td><b><%= @user.favorite_bean %></b></td>
       </tr>
      </tbody>
     </table>
@@ -49,7 +43,9 @@
   <br>
   <div class="row">
    <div class="col-md-6">
-    <label for="cafe"><b>カフェ投稿</b></label>
+    <label for="cafe">
+      <b><%= link_to "Cafe Post",new_cafe_path,class:'btn btn-secondary' %></b>
+    </label>
       <table class="table">
         <thead>
           <tr>
@@ -68,7 +64,9 @@
       </table>
    </div>
    <div class="col-md-6">
-    <label for="beans"><b>コーヒー豆投稿</b></label>
+    <label for="beans">
+      <b><%= link_to "Beans Post",new_bean_path,class:'btn btn-secondary' %></b>
+    </label>
       <table class="table">
         <thead>
           <tr>

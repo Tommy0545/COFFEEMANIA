@@ -17,6 +17,7 @@ class CafesController < ApplicationController
 
   def show
     @cafe=Cafe.find(params[:id])
+    @cafe_comment=CafeComment.new
   end
 
   def edit

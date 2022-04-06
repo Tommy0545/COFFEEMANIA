@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'homes/about'=>'homes#about',as: "about"
   resources :beans, only: [:new,:create,:index,:show,:edit]do
-    resources :comments, only: [:create,:destroy]
+    resources :bean_comments, only: [:create,:destroy]
     resource :favorites, only: [:create, :destroy]
   end
   patch 'beans/:id'=>'beans#update'
   delete 'beans/:id'=>'beans#destroy',as: 'destroy_bean'
-  resources :cafes, only: [:new,:create,:index,:show,:edit]do
 
-    resources :comments, only: [:create,:destroy]
+  resources :cafes, only: [:new,:create,:index,:show,:edit]do
+    resources :cafe_comments, only: [:create,:destroy]
     resource :favorites, only: [:create, :destroy]
   end
   patch 'cafes/:id'=>'cafes#update'
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show,:edit]
   patch 'users/:id'=>'users#update'
-  patch 'users/:id'=>'users#withdrawal',as: 'withdrawal_user'
+  patch 'users/withdrawal'=>'users#withdrawal',as: 'withdrawal_user'
 
 
 

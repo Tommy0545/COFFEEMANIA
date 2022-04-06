@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_30_055527) do
+ActiveRecord::Schema.define(version: 2022_04_06_164302) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 2022_03_30_055527) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bean_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "bean_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "beans", force: :cascade do |t|
     t.string "image"
     t.string "beans_name"
@@ -52,6 +60,14 @@ ActiveRecord::Schema.define(version: 2022_03_30_055527) do
     t.datetime "update_date"
     t.integer "user_id"
     t.integer "user_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cafe_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "cafe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user=User.find(params[:id])
+    @user=current_user
     @user.update(user_params)
     redirect_to user_path(@user.id)
   end
@@ -26,6 +26,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_name, :email, :profile_image, :favorite_bean)
+    params.require(:user).permit(:user_name, :email, :profile_image, :favorite_bean,:is_deleted)
   end
 end

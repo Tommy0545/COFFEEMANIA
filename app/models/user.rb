@@ -10,7 +10,8 @@ class User < ApplicationRecord
 
   has_many :beans,dependent: :destroy
   has_many :cafes,dependent: :destroy
-  has_many :comments,dependent: :destroy
+  has_many :cafe_comments,dependent: :destroy
+  has_many :bean_comments,dependent: :destroy
   has_many :favorites, dependent: :destroy
 
 
@@ -21,7 +22,7 @@ class User < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/sample-author1.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    profile_image.variant(resize_to_limit: [200, 200]).processed
+    profile_image.variant(resize_to_limit: [100, 100]).processed
   end
 
 

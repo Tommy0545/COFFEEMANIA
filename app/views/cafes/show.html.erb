@@ -1,15 +1,15 @@
 <div class="container px-5 px-sm-0">
   <h1>
     <b>
-      カフェ投稿詳細
+      Cafe Detail
     </b>
   </h1>
 
   <div class="container px-5 px-sm-0">
     <% if @cafe.user != current_user %>
-      <b><%= @cafe.user.user_name %></b>さんの投稿
+      <b><%= @cafe.user.user_name %></b>'s Post
     <% else %>
-      <b>自分の投稿</b>
+      <b>Your Post</b>
     <% end %>
   </div>
 
@@ -19,25 +19,59 @@
         <%= image_tag @cafe.get_image,size: '400x300' %>
     </div>
     <div class="form-group">
-      <label for="store_name">店舗名</label>
+      <label for="store_name">Store Name</label>
         <b><%= @cafe.store_name %></b>
     </div>
     <div class="form-group">
-      <label for="location">所在地</label>
+      <label for="location">Location</label>
         <b><%= @cafe.location %></b>
     </div>
     <div class="form-group">
-      <label for="introduction">紹介</label>
+      <label for="introduction">Introduction</label>
         <b><%= @cafe.introduction %></b>
     </div>
     <div class="form-group">
-      <label for="site_url">サイトURL</label>
-        <b><%= link_to @cafe.site_url , @cafe.site_url, class: "ml-5" %></b>
+      <label for="site_url">Site URL</label>
+        <b><%= link_to @cafe.site_url , @cafe.site_url, class: "ml-4" %></b>
     </div>
     <% if @cafe.user == current_user %>
-        <%= link_to "編集する", edit_cafe_path(@cafe.id), class: "btn btn-success mr-2" %>
-        <%= link_to "削除", destroy_cafe_path(@cafe.id), method: :delete,"data-confirm" => "本当に削除しますか？", class: "btn btn-danger mr-2" %>
+        <%= link_to "EDIT", edit_cafe_path(@cafe.id), class: "btn btn-success mr-2" %>
+        <%= link_to "DELETE", destroy_cafe_path(@cafe.id), method: :delete,"data-confirm" => "本当に削除しますか？", class: "btn btn-danger mr-2" %>
     <% end %>
-    <%= link_to "戻る", cafes_path, class: "btn btn-primary" %>
+    <%= link_to "BACK", cafes_path, class: "btn btn-primary" %>
   </table>
+
+  <table class="row">
+   <% if @cafe.user != current_user %>
+    <b>Comment Number：<%= @cafe.cafe_comments.count %></b>
+   <% end %>
+   <table class="table">
+    <% @cafe.cafe_comments.each do |cafe_comment| %>
+     <tr>
+      <td><%= image_tag cafe_comment.user.get_profile_image(10,10) %></td>
+      <td class="mx-2">
+        <%= cafe_comment.user.user_name %>
+      </td>
+      <td>
+        <%= cafe_comment.created_at.strftime('%Y/%m/%d') %>
+      </td>
+      <td><%= cafe_comment.comment %></td>
+      <td>
+        <% if cafe_comment.user == current_user %>
+          <%= link_to "DELETE", cafe_cafe_comment_path(cafe_comment.cafe, cafe_comment), method: :delete, class: 'btn btn-danger' %>
+        <% end %>
+      </td>
+     </tr>
+    <% end %>
+
+   </table>
+  </table>
+  <div class="mt-3">
+   <% if @cafe.user != current_user %>
+    <%= form_with model: [@cafe, @cafe_comment] do |f| %>
+      <%= f.text_area :comment, rows: '5', placeholder: "Comment here" %>
+      <%= f.submit "SEND",class: 'btn btn-primary' %>
+    <% end %>
+   <% end %>
+  </div>
 </div>

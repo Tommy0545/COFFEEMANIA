@@ -1,6 +1,6 @@
 <h1>
   <b>
-    カフェ投稿一覧
+    Cafe Post List
   </b>
 </h1>
 <table class="table" >
@@ -9,7 +9,7 @@
       <th>User</th>
       <th>Store Name</th>
       <th>Location</th>
-      <th colspan="3"></th>
+      <th>Comment</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +18,7 @@
         <td><%= link_to cafe.user.user_name, user_path(cafe.id) %></td>
         <td><%= link_to cafe.store_name,cafe_path(cafe.id) %></td>
         <td><%= cafe.location %></td>
+        <td><%= link_to "#{cafe.cafe_comments.count} Comment", cafe_path(cafe.id) %></td>
       </tr>
     <% end %>
   </tbody>
