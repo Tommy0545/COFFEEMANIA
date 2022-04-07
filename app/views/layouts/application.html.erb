@@ -12,37 +12,41 @@
   </head>
 
   <body>
+   <div id="wrapper">
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container">
-          <h2 class="text-light">COFFEEMANIA</h2>
+          <h2 class="text-light"><%= link_to "COFFEEMANIA",root_path,class: 'text-light' %></h2>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
 
             <% if user_signed_in? %>
-              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-light' %></li>
-              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'カフェ投稿一覧', cafes_path, class: 'nav-link text-light' %></li>
-              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'コーヒー豆投稿一覧', beans_path, class: 'nav-link text-light' %></li>
-              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-light' %></li>
+              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'My Page', user_path(current_user.id), class: 'nav-link text-light' %></li>
+              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'Cafe', cafes_path, class: 'nav-link text-light' %></li>
+              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'Beans', beans_path, class: 'nav-link text-light' %></li>
+              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link text-light' %></li>
             <% else %>
-              <li class="nav-item m-1 rounded border border-muted"><%= link_to '新規登録', new_user_registration_path, class: 'nav-link text-light' %></li>
-              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'ログイン', new_user_session_path, class: 'nav-link text-light' %></li>
+              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'Sign up', new_user_registration_path, class: 'nav-link text-light' %></li>
+              <li class="nav-item m-1 rounded border border-muted"><%= link_to 'Log in', new_user_session_path, class: 'nav-link text-light' %></li>
               <li class="nav-item m-1 rounded border border-muted"><%= link_to 'Top', root_path, class: 'nav-link text-light' %></li>
               <li class="nav-item m-1 rounded border border-muted"><%= link_to 'About', about_path, class: 'nav-link text-light' %></li>
             <% end %>
             </ul>
           </div>
         </div>
+      </nav>
     </header>
     <main class="container mt-5">
-    <%= yield %>
+      <div style="padding-bottom: 60px;">
+        <%= yield %>
+      </div>
     </main>
+
+　 </div>
   </body>
 
-
-  <footer class="mt-auto py-3 bg-dark">
+    <footer class="fixed-bottom bg-dark">
 　    <div class="text-center text-light">Coffee makes you Happy</div>
-　</footer>
-
+　  </footer>
 
 </html>

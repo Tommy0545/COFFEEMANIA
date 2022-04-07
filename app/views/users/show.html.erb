@@ -36,8 +36,8 @@
   </div>
   <div class="mt-3">
     <% if @user == current_user %>
-      <%= link_to "編集する", edit_user_path(current_user) , class: 'mr-3 btn btn-success' %>
-      <%= link_to "退会する",withdrawal_user_path,method: :patch,"data-confirm"=>"本当に退会しますか？",class: 'btn btn-danger' %>
+      <%= link_to "EDIT", edit_user_path(current_user) , class: 'mr-3 btn btn-success' %>
+      <%= link_to "UNSUBSCRIBE",unsubscribe_user_path,class: 'btn btn-danger' %>
     <% end %>
   </div>
   <br>

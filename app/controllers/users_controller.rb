@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
 
+  def unsubscribe
+    @user=current_user
+  end
+
   def withdrawal
     @user=current_user
     @user.update(is_deleted: true)

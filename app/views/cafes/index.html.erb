@@ -10,6 +10,7 @@
       <th>Store Name</th>
       <th>Location</th>
       <th>Comment</th>
+      <th>♡</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
         <td><%= link_to cafe.store_name,cafe_path(cafe.id) %></td>
         <td><%= cafe.location %></td>
         <td><%= link_to "#{cafe.cafe_comments.count} Comment", cafe_path(cafe.id) %></td>
+        <td><%= cafe.cafe_favorites.count %></td>
       </tr>
     <% end %>
   </tbody>
