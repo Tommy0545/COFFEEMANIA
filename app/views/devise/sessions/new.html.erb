@@ -1,8 +1,11 @@
-<h3>ログイン</h3>
+<div class="container">
+<h2>Log in</h2>
+
+<h3 class="text-danger"><%= flash[:error] %></h3>
 
 <h7>会員の方はこちらからログイン</h7>
 
-<%= form_with model: @user, url: user_session_path  do |f| %>
+ <%= form_with model: @user, url: user_session_path  do |f| %>
 
   <div class="field">
     <%= f.label :メールアドレス %><br />
@@ -17,7 +20,13 @@
   <div class="actions">
     <%= f.submit "ログイン" %>
   </div>
-<% end %>
+ <% end %>
 
-<h7>会員登録がお済みでない方</h7>
-  <p><%= link_to "こちら",new_user_registration_path %></u>　から新規登録してください。</p>
+
+  <div class="row">
+    <div class="col-5">
+      <h7>会員登録がお済みでない方</h7>
+      <p><%= link_to "こちら",new_user_registration_path %></u>　から新規登録してください。</p>
+    </div>
+  </div>
+</div>

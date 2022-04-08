@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   patch 'cafes/:id'=>'cafes#update'
   delete 'cafes/:id'=>'cafes#destroy',as: 'destroy_cafe'
 
-  resources :users, only: [:show,:edit]
+  resources :users, only: [:show,:edit,:withdrawal]
   patch 'users/:id'=>'users#update'
   get 'users/:id/unsubscribe'=>'users#unsubscribe',as: 'unsubscribe_user'
   patch 'users/:id/withdrawal'=>'users#withdrawal',as: 'withdrawal_user'
