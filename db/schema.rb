@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_053348) do
     t.string "user_name"
     t.string "profile_image"
     t.string "favorite_bean"
+    t.string "introduction"
     t.boolean "is_deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

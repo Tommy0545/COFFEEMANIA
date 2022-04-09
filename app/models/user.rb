@@ -10,10 +10,10 @@ class User < ApplicationRecord
   has_one_attached:profile_image
   has_many :beans, dependent: :destroy
   has_many :cafes, dependent: :destroy
-  has_many :cafe_comments, dependent: :destroy
-  has_many :bean_comments, dependent: :destroy
-  has_many :cafe_favorites, dependent: :destroy
-  has_many :bean_favorites, dependent: :destroy
+  has_many :cafe_comments
+  has_many :bean_comments
+  has_many :cafe_favorites
+  has_many :bean_favorites
 
   def get_profile_image(width, height)
     unless profile_image.attached?

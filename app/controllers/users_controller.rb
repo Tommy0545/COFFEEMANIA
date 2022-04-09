@@ -17,11 +17,11 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe
-    @user=current_user
+    @user=User.find(params[:id])
   end
 
   def withdrawal
-    @user=current_user
+    @user=User.find(params[:id])
     @user.update(is_deleted: true)
     reset_session
     redirect_to root_path
@@ -30,6 +30,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_name, :email, :profile_image, :favorite_bean,:is_deleted)
+    params.require(:user).permit(:user_name, :email, :profile_image,:introduction, :favorite_bean,:is_deleted)
   end
 end
