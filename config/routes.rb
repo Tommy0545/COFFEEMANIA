@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :cafes, only: [:new,:create,:index,:show,:edit]do
     resources :cafe_comments, only: [:create,:destroy]
     resource :cafe_favorites, only: [:create, :destroy]
-
   end
   patch 'cafes/:id'=>'cafes#update'
   delete 'cafes/:id'=>'cafes#destroy',as: 'destroy_cafe'

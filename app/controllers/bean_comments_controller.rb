@@ -1,10 +1,10 @@
 class BeanCommentsController < ApplicationController
   def create
-    bean=Bean.find(params[:bean_id])
+    @bean=Bean.find(params[:bean_id])
     comment=current_user.bean_comments.new(bean_comment_params)
-    comment.bean_id=bean.id
+    comment.bean_id=@bean.id
     comment.save
-    redirect_to bean_path(bean)
+    redirect_to bean_path(@bean)
   end
 
   def destroy

@@ -7,14 +7,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one_attached:profile_image
+  
   has_many :beans, dependent: :destroy
   has_many :cafes, dependent: :destroy
   has_many :cafe_comments
   has_many :bean_comments
   has_many :cafe_favorites
   has_many :bean_favorites
-
+  
+  
+  has_one_attached:profile_image
+  
+  
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

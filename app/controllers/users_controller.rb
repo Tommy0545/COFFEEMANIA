@@ -23,6 +23,12 @@ class UsersController < ApplicationController
   def withdrawal
     @user=User.find(params[:id])
     @user.update(is_deleted: true)
+    @user.beans.destroy_all
+    @user.cafes.destroy_all
+    @user.bean_comments.destroy_all
+    @user.cafe_comments.destroy_all
+    @user.bean_favorites.destroy_all
+    @user.cafe_favorites.destroy_all
     reset_session
     redirect_to root_path
   end
@@ -30,6 +36,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_name, :email, :profile_image,:introduction, :favorite_bean,:is_deleted)
+    params.require(:user).permit(:user_name, :email, :profile_image, :introduction, :favorite_bean,:is_deleted)
   end
 end

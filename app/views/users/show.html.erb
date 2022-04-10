@@ -11,7 +11,7 @@
     <table class="ml-3">
      <tbody>
       <tr>
-         <% if @user.profile_image.attached? %>
+        <% if @user.profile_image.attached? %>
           <%= image_tag @user.get_profile_image(300,300) %>
         <% else %>
           <%= image_tag 'no_image', size: "200x200" %>
@@ -50,45 +50,45 @@
     <label for="cafe">
       <b><%= link_to "Cafe Post",new_cafe_path,class:'btn btn-secondary' %></b>
     </label>
-      <table class="table">
-        <thead>
+    <table class="table">
+      <thead>
           <tr>
             <th>Store Name</th>
             <th>Location</th>
           </tr>
-        </thead>
-        <tbody>
-          <% @cafes.each do |cafe| %>
+      </thead>
+      <tbody>
+        <% @cafes.each do |cafe| %>
           <tr>
             <td><%= link_to cafe.store_name,cafe_path(cafe.id) %></td>
             <td><%= cafe.location %></td>
           </tr>
-          <% end %>
-        </tbody>
-      </table>
+        <% end %>
+      </tbody>
+    </table>
    </div>
    <div class="col-md-6">
     <label for="beans">
       <b><%= link_to "Beans Post",new_bean_path,class:'btn btn-secondary' %></b>
     </label>
-      <table class="table">
-        <thead>
+    <table class="table">
+      <thead>
           <tr>
             <th>Beans Name</th>
             <th>Origin</th>
             <th>Process</th>
           </tr>
-        </thead>
-        <tbody>
-          <% @beans.each do |bean| %>
+      </thead>
+      <tbody>
+        <% @beans.each do |bean| %>
           <tr>
             <td><%= link_to bean.beans_name,bean_path(bean.id) %></td>
             <td><%= bean.origin  %></td>
             <td><%= bean.process %></td>
           </tr>
-          <% end %>
-        </tbody>
-      </table>
+        <% end %>
+      </tbody>
+    </table>
    </div>
   </div>
 </div>
