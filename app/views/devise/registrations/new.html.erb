@@ -1,35 +1,40 @@
-<h2>Sign up</h2>
+<div class="container">
+ <div align="center">
+   <h1>Sign up</h1>
 
-<%= form_with model: @user, url: user_registration_path do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <th><%= f.label :ユーザー名 %></th><br>
-    <td><%= f.text_field :user_name %></td>
+  <%= form_with model: @user, url: user_registration_path do |f| %>
+   <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field mt-3">
+      <td>User Name</td><br>
+      <td><%= f.text_field :user_name %></td>
+    </div>
+
+    <div class="field mt-3">
+      <td>Email</td><br>
+      <%= f.email_field :email, autocomplete: "email" %>
+    </div>
+
+    <div class="field mt-3">
+      <td>Password</td><br>
+      <% if @minimum_password_length %>
+      <em>(More than<%= @minimum_password_length %> letters)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field mt-3">
+      <td>Password(confirmation)</td><br>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="col-5 mt-3">
+      <%= f.submit "Sign up" %>
+    </div>
+   <% end %>
+   <div class="mt-5">
+     <h4>If already registered</h4>
+     <h4>Pleae<%= link_to "Log in", new_user_session_path %>here.</h4n>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :メールアドレス %><br>
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード（確認用） %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "保存" %>
-  </div>
-<% end %>
-
-<h4>既に登録済みの方</h4>
- <span class="mx-3"><%= link_to "こちら", new_user_session_path %></span>からログインしてください。
+ </div>
 </div>

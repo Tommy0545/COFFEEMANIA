@@ -1,28 +1,41 @@
-<h1>
-  <b>
-    Beans Post List
-  </b>
-</h1>
-<table class="table" >
-  <thead>
+<div class="container">
+ <div class="row">
+  <div class="col-5">
+    <h1>
+      <b>
+        Beans Post List
+      </b>
+    </h1>
+  </div>
+  <div class="col-6">
+    <%= link_to "+Bean Post",new_bean_path,class: 'btn btn-secondary'%>
+  </div>
+ </div>
+ <div class="row mt-3">
+  <table class="table" >
+   <thead>
     <tr>
-      <th>User</th>
+      <th>Image</th>
       <th>Beans Name</th>
       <th>Origin</th>
+      <th>Posted date</th>
       <th>Comment</th>
       <th>♡</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @beans.each do |bean| %>
+     </tr>
+    </thead>
+    <tbody>
+     <% @beans.each do |bean| %>
       <tr>
-        <td><%= link_to bean.user.user_name, user_path(bean.user_id) %></td>
-        <td><%= link_to bean.beans_name,bean_path(bean.id) %></td>
-        <td><%= bean.origin %></td>
-        <td><%= link_to "#{bean.bean_comments.count} Comment", bean_path(bean.id) %></td>
-        <td><%= bean.bean_favorites.count %></td>
+        <td><%= image_tag bean.image, size: "100x100" %></td>
+        <td class="pt-5"><%= link_to bean.beans_name,bean_path(bean.id) %></td>
+        <td class="pt-5"><%= bean.origin %></td>
+        <td class="pt-5"><%= bean.created_at.strftime('%Y/%m/%d') %></td>
+        <td class="pt-5"><%= link_to "#{bean.bean_comments.count} Comment", bean_path(bean.id) %></td>
+        <td class="pt-5"><%= bean.bean_favorites.count %></td>
       </tr>
-    <% end %>
-  </tbody>
+     <% end %>
+    </tbody>
 
-</table>
+  </table>
+ </div>
+</div>

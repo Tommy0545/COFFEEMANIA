@@ -4,12 +4,12 @@ class Users::SessionsController < Devise::SessionsController
   before_action :reject_user, only: [:create]
 
   def after_sign_in_path_for(resource)
-    flash[:notice] = "ログインに成功しました。"
+    flash[:notice] = "Login was successful."
     root_path
   end
 
   def after_sign_out_path_for(resource)
-    flash[:notice] = "ログアウトに成功しました。"
+    flash[:notice] = "Log out was successful."
     root_path
   end
 
@@ -19,11 +19,11 @@ class Users::SessionsController < Devise::SessionsController
     @user = User.find_by(email: params[:user][:email].downcase)
     if @user
       if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
-        flash[:error] = "退会済みです。再度会員登録をしてください。"
+        flash[:error] = "You have been unsubscribed. Please register as a member again."
         redirect_to new_user_session_path
       end
     else
-      flash[:error] = "必須項目を入力してください。"
+      flash[:error] = "Please fill in the required fields."
     end
   end
 end
