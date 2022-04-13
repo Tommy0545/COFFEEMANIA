@@ -7,12 +7,13 @@ class BeansController < ApplicationController
     @bean=Bean.new(bean_params)
     @bean.user_id=current_user.id
     @bean.save
+    flash[:notice]="Posted successfully"
     redirect_to beans_path
   end
 
   def index
     @beans=Bean.all
-    
+
   end
 
   def show

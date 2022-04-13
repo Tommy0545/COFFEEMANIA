@@ -1,11 +1,11 @@
 <div class="container px-5 px-sm-0">
+ <div align="center">
   <h1>
     <b>
       Cafe Edit
     </b>
   </h1>
-
-  <table class="table table-hover table-inverse">
+    <table class="table table-hover table-invers mt-5">
         <%= form_with model: @cafe do |f| %>
           <div class="form-group">
             <label for="image">Cafe Image</label><br>
@@ -21,7 +21,7 @@
           </div>
           <div class="form-group">
             <label for="introduction">Introduction</label><br>
-            <%= f.text_area :introduction %>
+            <%= f.text_area :introduction,size: "20x8" %>
           </div>
           <div class="form-group">
             <label for="site_url">Site URL</label><br>
@@ -32,5 +32,6 @@
             <%= link_to 'BACK', cafe_path(@cafe.id), class: "btn btn-primary" %>
           </div>
         <% end %>
-  </table>
+    </table>
+ </div>
 </div>

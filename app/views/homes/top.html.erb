@@ -1,17 +1,18 @@
-<div class="container">
+<html>
+ <div class="container">
   <h7><%= flash[:notice] %></h7>
-  <h2>Welcome to COFFEEMANIA！！</h2><br>
+  <h1>Welcome to COFFEEMANIA！！</h1><br>
   <h6>
    This site can be viewed by anyone on the TOP page and ABOUT page, but to use the main functions of this site such as posting and viewing posts by other users,
    Account registration is required.<br>
    <br>
    Please register from the Sign Up button on the upper right.
   </h6>
- <div class="row">
-  <div class="col-md-6 mt-4">
-   <h3><%= link_to "Cafe Post",new_cafe_path,class: 'btn btn-secondary' %></h3>
-   <table class="table" >
-    <thead>
+  <div class="row">
+   <div class="col-md-6 mt-4">
+    <h3><%= link_to "Cafe Post",new_cafe_path,class: 'btn btn-secondary' %></h3>
+    <table class="table" >
+     <thead>
      <tr>
       <th>User</th>
       <th>Store Name</th>
@@ -23,7 +24,7 @@
     <tbody>
     <% @cafes.each do |cafe| %>
       <tr>
-        <td><%= link_to cafe.user.user_name, user_path(cafe.user_id) %></td>
+        <td><%= link_to cafe.user.user_name, user_path(cafe.user_id),class: '' %></td>
         <td><%= link_to cafe.store_name,cafe_path(cafe.id) %></td>
         <td><%= cafe.location %></td>
         <td><%= link_to "#{cafe.cafe_comments.count} Comment", cafe_path(cafe.id) %></td>
@@ -37,18 +38,18 @@
 
   <div class="col-md-6 mt-4">
    <h3><%= link_to "Bean Post",new_bean_path, class: 'btn btn-secondary' %></h3>
-   <table class="table" >
-    <thead>
-     <tr>
-      <th>User</th>
-      <th>Beans Name</th>
-      <th>Origin</th>
-      <th>Comment</th>
-      <th>♡</th>
-     </tr>
-    </thead>
-    <tbody>
-    <% @beans.each do |bean| %>
+    <table class="table" >
+     <thead>
+      <tr>
+       <th>User</th>
+       <th>Beans Name</th>
+       <th>Origin</th>
+       <th>Comment</th>
+       <th>♡</th>
+      </tr>
+     </thead>
+     <tbody>
+     <% @beans.each do |bean| %>
       <tr>
         <td><%= link_to bean.user.user_name, user_path(bean.user_id) %></td>
         <td><%= link_to bean.beans_name,bean_path(bean.id) %></td>
@@ -56,11 +57,11 @@
         <td><%= link_to "#{bean.bean_comments.count} Comment", bean_path(bean.id) %></td>
         <td><%= bean.bean_favorites.count %></td>
       </tr>
-    <% end %>
-    </tbody>
+     <% end %>
+     </tbody>
 
-   </table>
+    </table>
+   </div>
   </div>
  </div>
-</div>
-
+</html>

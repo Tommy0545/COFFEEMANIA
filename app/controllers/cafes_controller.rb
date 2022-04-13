@@ -8,6 +8,7 @@ class CafesController < ApplicationController
     @cafe=Cafe.new(cafe_params)
     @cafe.user_id=current_user.id
     @cafe.save
+    flash[:notice]="Posted successfully"
     redirect_to cafes_path
   end
 

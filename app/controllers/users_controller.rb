@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     @beans=@user.beans
   end
 
+  def index
+    @@users = User.where.not(id: current_user.id)
+  end
+
   def edit
     @user=User.find(params[:id])
   end
@@ -13,6 +17,7 @@ class UsersController < ApplicationController
   def update
     @user=current_user
     @user.update(user_params)
+    flash[:notice]="Uupdate was successfully"
     redirect_to user_path(@user.id)
   end
 
@@ -31,6 +36,16 @@ class UsersController < ApplicationController
     @user.cafe_favorites.destroy_all
     reset_session
     redirect_to root_path
+  end
+
+  def followings
+    user = User.find(params[:id])
+    @user = user.followings
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @user = user.followers
   end
 
   private

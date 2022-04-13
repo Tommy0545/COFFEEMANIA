@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+.background-image{
+  background-image: image-url('COFFEE0I9A8933.jpg');
+  background-size: cover;
+  min-height: auto;
+  background-position: center center;
+}
+
+.body{
+  background: rgba(255,255,255,0.8);
+  background-size: cover;
+  min-height: 110vh;
+}
+
+footer{
+
+  background-color: #663300;
+}
+
+nav{
+  background-color:#663300;
+}
+
+.btn{
+  background-color: #663300;
+  color: white;
+}
+
+.unsubscribe{
+  text-align: center;
+  padding-top: 100px;
+  letter-spacing: 3px;
+}
+
+.unsubscribe-btn{
+  padding-top: 50px;
+}
