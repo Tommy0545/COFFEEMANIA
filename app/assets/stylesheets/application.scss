@@ -13,6 +13,15 @@
  *= require_tree .
  *= require_self
  */
+ .main-title{
+   font-color: white;
+   font-family: Comic Sans MS;
+ }
+
+ .nav-item{
+   font-family: Comic Sans MS;
+ }
+
 .background-image{
   background-image: image-url('COFFEE0I9A8933.jpg');
   background-size: cover;
@@ -33,6 +42,10 @@ footer{
 
 nav{
   background-color:#663300;
+}
+
+.about{
+  font-family: Comic Sans MS;
 }
 
 .btn{
