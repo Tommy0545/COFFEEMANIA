@@ -1,29 +1,29 @@
 <div class="container">
  <div align="center">
   <h7><%= flash[:notice] %></h7>
-  <h1>Log in</h1>
+  <h1 class="about"><b>Log in</b></h1>
     <h3 class="text-danger"><%= flash[:error] %></h3>
 
 
      <%= form_with model: @user, url: user_session_path  do |f| %>
       <div class="field mt-3">
         <i class="fa-solid fa-envelope"></i>
-        <td>Email</td><br>
+        <i class="cafe-table">Email</i><br>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
 
       <div class="field mt-3">
         <i class="fa-solid fa-key"></i>
-        <td>Password</td><br>
+        <i class="cafe-table">Password</i><br>
         <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
 
-      <div class="actions mt-3">
+      <div class="about actions mt-3">
         <%= f.submit "Log in" %>
       </div>
      <% end %>
 
-      <div class="mt-4">
+      <div class="about mt-4">
         <h4>If not already registered</h4>
         <h4>Please<%= link_to "Sign up",new_user_registration_path %></u>from here.</h4>
       </div>

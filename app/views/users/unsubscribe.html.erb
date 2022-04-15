@@ -1,17 +1,15 @@
-<div class="unsubscribe">
-  <h1>
-   <b>退会手続き</b>
+  <h1 class="unsubscribe">
+   <b>Unsubscribe</b>
   </h1>
-  <p>
-     退会手続きをされますと、全ての投稿が削除されご利用いただけなくなります。<br>
-     再度ご利用をいただく場合には、新規登録のお手続きが必要になります。<br>
-     本当に退会してよろしいですか？
+  <p class="p">
+     If you cancel the membership, all posts will be deleted and you will not be able to use them. <br>
+      If you want to use it again, you need to complete the new registration procedure. <br>
+      Are you sure you want to unsubscribe?
   </p>
 
- <div class="unsubscribe-btn">
-  <div align="center">
-    <%= link_to "退会する", withdrawal_user_path, method: :patch, data: { confilm: "本当に退会しますか？" },class: 'btn btn-danger' %>
-    <%= link_to "退会しない", user_path(current_user),class: 'btn btn-primary' %>
+  <div class="unsubscribe-btn">
+   <div align="center">
+    <%= link_to "Withdrawal", withdrawal_user_path, method: :patch, data: { confilm: "本当に退会しますか？" },class: 'btn btn-danger' %>
+    <%= link_to "Back", user_path(current_user),class: 'btn btn-primary' %>
    </div>
   </div>
-</div>

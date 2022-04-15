@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
    <div class="col-md-5">
-    <h1>
+    <h1 class="cafe-post-list">
      <i class="fa-solid fa-mug-hot"></i>
      <b>
       Cafe Post List
@@ -10,12 +10,14 @@
     </h1>
    </div>
    <div class="col-6">
+    <div class="post">
      <%= link_to "+Cafe Post",new_cafe_path,class: 'btn btn-dark'  %>
+    </div>
    </div>
  </div>
  <div class="row mt-3">
   <table class="table" >
-   <thead>
+   <thead class="cafe-table">
     <tr>
       <th>Image</th>
       <th>Store Name</th>

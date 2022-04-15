@@ -1,24 +1,24 @@
 <div class="container">
  <div align="center">
-   <h1>Sign up</h1>
+   <h1 class="cafe-table"><b>Sign up</b></h1>
 
   <%= form_with model: @user, url: user_registration_path do |f| %>
    <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field mt-3">
       <i class="fa-solid fa-user"></i>
-      <td>User Name</td><br>
+      <i class="cafe-table">User Name</i><br>
       <td><%= f.text_field :user_name %></td>
     </div>
 
     <div class="field mt-3">
       <i class="fa-solid fa-envelope"></i>
-      <td>Email</td><br>
+      <i class="cafe-table">Email</i><br>
       <%= f.email_field :email, autocomplete: "email" %>
     </div>
 
     <div class="field mt-3">
       <i class="fa-solid fa-key"></i>
-      <td>Password</td><br>
+      <i class="cafe-table">Password</i><br>
       <% if @minimum_password_length %>
       <em>(More than<%= @minimum_password_length %> letters)</em>
       <% end %><br />
@@ -27,15 +27,15 @@
 
     <div class="field mt-3">
       <i class="fa-solid fa-key"></i>
-      <td>Password(confirmation)</td><br>
+      <i class="cafe-table">Password(confirmation)</i><br>
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
-    <div class="col-5 mt-3">
+    <div class="about col-5 mt-3">
       <%= f.submit "Sign up" %>
     </div>
    <% end %>
-   <div class="mt-5">
+   <div class="about mt-5">
      <h4>If already registered</h4>
      <h4>Pleae<%= link_to "Log in", new_user_session_path %>here.</h4n>
     </div>

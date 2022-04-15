@@ -12,9 +12,9 @@
   </div>
   <div class="row">
    <div class="col-md-6 mt-4">
-    <h3><%= link_to "Cafe Post",new_cafe_path,class: 'btn btn-secondary' %></h3>
+    <h3 class="post"><%= link_to "Cafe Post",new_cafe_path,class: 'btn btn-secondary' %></h3>
     <table class="table" >
-     <thead>
+     <thead class="cafe-table">
      <tr>
       <th>User</th>
       <th>Store Name</th>
@@ -39,9 +39,9 @@
   </div>
 
   <div class="col-md-6 mt-4">
-   <h3><%= link_to "Bean Post",new_bean_path, class: 'btn btn-secondary' %></h3>
+   <h3 class="post"><%= link_to "Bean Post",new_bean_path, class: 'btn btn-secondary' %></h3>
     <table class="table" >
-     <thead>
+     <thead class="bean-table">
       <tr>
        <th>User</th>
        <th>Beans Name</th>

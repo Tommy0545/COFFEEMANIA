@@ -1,10 +1,14 @@
 class BeanCommentsController < ApplicationController
   def create
     @bean=Bean.find(params[:bean_id])
-    comment=current_user.bean_comments.new(bean_comment_params)
-    comment.bean_id=@bean.id
-    comment.save
-    redirect_to bean_path(@bean)
+    @bean_comment=current_user.bean_comments.new(bean_comment_params)
+    @bean_comment.bean_id=@bean.id
+    if @bean_comment.save
+      redirect_to bean_path(@bean)
+    else
+      @error_comment = @bean_comment
+      render 'beans/show'
+    end
   end
 
   def destroy

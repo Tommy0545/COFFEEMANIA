@@ -1,6 +1,6 @@
 <div class="container">
  <div align="center">
-  <h1>
+  <h1 class="bean-table">
     <b>
     　Beans Post
     </b>
@@ -9,15 +9,15 @@
   <table class="table table-hover table-inverse">
         <%= form_with model: @bean,url: beans_path do |f| %>
           <div class="form-group">
-            <label for="image">Beans Image</label><br>
+            <label class="bean-table" for="image">Beans Image</label><br>
             <%= f.file_field :image, accept: "image/*" %>
           </div>
           <div class="form-group">
-            <label for="beans_name">Beans Name</label><br>
+            <label class="bean-table" for="beans_name">Beans Name</label><br>
             <%= f.text_field :beans_name %>
           </div>
           <div class="form-group">
-            <label for="loast_lebel">Roast Lebel</label><br>
+            <label class="bean-table" for="loast_lebel">Roast Lebel</label><br>
             <%= f.radio_button:loast_lebel,Bean.loast_lebels.key(0) %>
             <%= f.label:loast_lebel,Bean.loast_lebels_i18n[:light] %>
             <%= f.radio_button:loast_lebel,Bean.loast_lebels.key(1) %>
@@ -26,22 +26,22 @@
             <%= f.label:loast_lebel,Bean.loast_lebels_i18n[:dark] %>
           </div>
           <div class="form-group">
-            <label for="origin">Origin</label><br>
+            <label class="bean-table" for="origin">Origin</label><br>
             <%= f.text_field :origin %>
           </div>
           <div class="form-group">
-            <label for="process">Process</label><br>
+            <label class="bean-table" for="process">Process</label><br>
             <%= f.text_field :process %>
           </div>
           <div class="form-group">
-            <label for="feedback">Feedback</label><br>
+            <label class="bean-table" for="feedback">Feedback</label><br>
             <%= f.text_area :feedback %>
           </div>
           <div class="form-group">
-            <label for="purchase">Purchase Site</label><br>
+            <label class="bean-table" for="purchase">Purchase Site</label><br>
             <%= f.text_field :purchase %>
           </div>
-          <div class="form-group">
+          <div class="bean-table form-group">
             <%= f.submit 'POST',class: "btn btn-success" %>
           </div>
         <% end %>

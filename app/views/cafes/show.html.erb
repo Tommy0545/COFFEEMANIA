@@ -1,11 +1,11 @@
 <div class="container px-5 px-sm-0">
-  <h1>
+  <h1 class="cafe-detail">
     <b>
       Cafe Detail
     </b>
   </h1>
 
-  <div class="row px-5 px-sm-0">
+  <div class="cafe-detail row px-5 px-sm-0">
     <div class="col-2">
      <% if @cafe.user != current_user %>
       <b><%= link_to @cafe.user.user_name,user_path(@cafe.user_id) %></b>'s Post
@@ -13,7 +13,7 @@
       <b>Your Post</b>
      <% end %>
     </div>
-    <div class="col-5">
+    <div class="cafe-detail col-5">
       Posted date:<%= @cafe.created_at.strftime('%Y/%m/%d') %>
     </div>
   </div>
@@ -28,25 +28,25 @@
 
    <table class="col-md-6">
     <tr class="form-group">
-      <td>Store Name</td>
+      <td class="cafe-detail">Store Name</td>
       <td><b><%= @cafe.store_name %></b></td>
     </tr>
     <tr class="form-group">
-      <td>Location</td>
+      <td class="cafe-detail">Location</td>
       <td><b><%= @cafe.location %></b></td>
     </tr>
     <tr class="form-group">
-      <td>Introduction</td>
+      <td class="cafe-detail">Introduction</td>
       <td><b><%= @cafe.introduction %></b></td>
     </tr>
     <tr class="form-group">
-      <td>Site URL</td>
+      <td class="cafe-detail">Site URL</td>
       <td><b><%= link_to @cafe.site_url , @cafe.site_url %></b></td>
     </tr>
    </table>
    </div>
 
-  <div class="row">
+  <div class="cafe-detail row">
     <% if @cafe.favorited_by?(current_user) %>
     <p>
       <%= link_to cafe_cafe_favorites_path(@cafe), method: :delete do %>
@@ -61,7 +61,7 @@
     </p>
     <% end %>
   </div>
-  <div class="row mx-3">
+  <div class="cafe-detail row mx-3">
     <% if @cafe.user == current_user %>
         <%= link_to "EDIT", edit_cafe_path(@cafe.id), class: "btn btn-info mr-2" %>
         <%= link_to "DELETE", destroy_cafe_path(@cafe.id), method: :delete,"data-confirm" => "本当に削除しますか？", class: "btn btn-danger mr-2" %>
@@ -69,10 +69,20 @@
     <%= link_to "BACK", cafes_path, class: "btn btn-success" %>
   </div>
 
-  <div class="row mt-4">
+  <div class="cafe-detail row mt-4">
     <b>Comment Number：<%= @cafe.cafe_comments.count %></b>
   </div>
-  <div class="row pb-2">
+   <% if @error_comment.present? %>
+    <div id="error_explanation">
+      <h4><%= @error_comment.errors.count %>件のエラーが発生しました。</h4>
+      <ul>
+        <% @error_comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+   <% end %>
+  <div class="cafe-detail row pb-2">
      <div class="col-3">
        <% if @cafe.user != current_user %>
         <%= form_with model: [@cafe, @cafe_comment] do |f| %>

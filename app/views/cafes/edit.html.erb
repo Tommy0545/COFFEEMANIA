@@ -1,6 +1,6 @@
 <div class="container px-5 px-sm-0">
  <div align="center">
-  <h1>
+  <h1 class="cafe-edit">
     <b>
       Cafe Edit
     </b>
@@ -8,11 +8,11 @@
     <table class="table table-hover table-invers mt-5">
         <%= form_with model: @cafe do |f| %>
           <div class="form-group">
-            <label for="image">Cafe Image</label><br>
+            <label class="cafe-edit" for="image">Cafe Image</label><br>
             <%= f.file_field :image, accept: "image/*" %>
           </div>
           <div class="form-group">
-            <label for="store_name">Store Name</label><br>
+            <label class="cafe-edit" for="store_name">Store Name</label><br>
             <%= f.text_field :store_name %>
           </div>
           <div class="form-group">
@@ -20,14 +20,14 @@
             <%= f.text_field :location %>
           </div>
           <div class="form-group">
-            <label for="introduction">Introduction</label><br>
+            <label class="cafe-edit" for="introduction">Introduction</label><br>
             <%= f.text_area :introduction,size: "20x8" %>
           </div>
           <div class="form-group">
-            <label for="site_url">Site URL</label><br>
+            <label class="cafe-edit" for="site_url">Site URL</label><br>
             <%= f.text_field :site_url %>
           </div>
-          <div class="form-group">
+          <div class="cafe-edit form-group">
             <%= f.submit 'SUBMIT',class: "btn btn-success" %>
             <%= link_to 'BACK', cafe_path(@cafe.id), class: "btn btn-primary" %>
           </div>

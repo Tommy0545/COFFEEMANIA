@@ -24,6 +24,7 @@
 
 .background-image{
   background-image: image-url('COFFEE0I9A8933.jpg');
+
   background-size: cover;
   min-height: auto;
   background-position: center center;
@@ -40,6 +41,12 @@ footer{
   background-color: #663300;
 }
 
+.footer-text{
+  font-family: Comic Sans MS;
+  text-align: center;
+  color: white;
+}
+
 nav{
   background-color:#663300;
 }
@@ -53,6 +60,13 @@ nav{
   color: white;
 }
 
+.p{
+  margin-top: 5;
+  text-align: center;
+  padding-top: 50px;
+  letter-spacing: 3px;
+}
+
 .unsubscribe{
   text-align: center;
   padding-top: 100px;
@@ -61,4 +75,53 @@ nav{
 
 .unsubscribe-btn{
   padding-top: 50px;
+}
+
+.post{
+  font-family: Comic Sans MS;
+
+}
+
+.cafe-post-list{
+  font-family: Comic Sans MS;
+}
+
+.bean-post-list{
+  font-family: Comic Sans MS;
+}
+
+.cafe-table{
+  font-family: Comic Sans MS;
+}
+
+.bean-table{
+  font-family: Comic Sans MS;
+}
+
+.cafe-detail{
+  font-family: Comic Sans MS;
+}
+
+.bean-detail{
+  font-family: Comic Sans MS;
+}
+
+.cafe-edit{
+  font-family: Comic Sans MS;
+}
+
+.bean-edit{
+  font-family: Comic Sans MS;
+}
+
+.userpage{
+  font-family: Comic Sans MS;
+}
+
+.follow{
+  font-family: Comic Sans MS;
+}
+
+.text-small{
+  margin: 2;
 }

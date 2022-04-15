@@ -1,10 +1,14 @@
 class CafeCommentsController < ApplicationController
   def create
     @cafe=Cafe.find(params[:cafe_id])
-    comment=current_user.cafe_comments.new(cafe_comment_params)
-    comment.cafe_id=@cafe.id
-    comment.save
-    redirect_to cafe_path(@cafe)
+    @cafe_comment=current_user.cafe_comments.new(cafe_comment_params)
+    @cafe_comment.cafe_id=@cafe.id
+    if @cafe_comment.save
+      redirect_to cafe_path(@cafe)
+    else
+      @error_comment = @cafe_comment
+      render 'cafes/show'
+    end
   end
 
   def destroy
