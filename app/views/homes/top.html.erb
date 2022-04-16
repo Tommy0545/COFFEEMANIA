@@ -2,7 +2,7 @@
  <div class="container">
   <h7><%= flash[:notice] %></h7>
   <div class="about">
-   <h1>Welcome to COFFEEMANIA！！</h1><br>
+   <h1>Welcome to COFFEEMANIA！！</h1><br><br>
    <h6>
     This site can be viewed by anyone on the TOP page and ABOUT page, but to use the main functions of this site such as posting and viewing posts by other users,
     Account registration is required.<br>
@@ -10,8 +10,9 @@
     Please register from the Sign Up button on the upper right.
    </h6>
   </div>
+  <br>
   <div class="row">
-   <div class="col-md-6 mt-4">
+   <div class="col-md-6 mt-5">
     <h3 class="post"><%= link_to "Cafe Post",new_cafe_path,class: 'btn btn-secondary' %></h3>
     <table class="table" >
      <thead class="cafe-table">
@@ -38,7 +39,7 @@
    </table>
   </div>
 
-  <div class="col-md-6 mt-4">
+  <div class="col-md-6 mt-5">
    <h3 class="post"><%= link_to "Bean Post",new_bean_path, class: 'btn btn-secondary' %></h3>
     <table class="table" >
      <thead class="bean-table">

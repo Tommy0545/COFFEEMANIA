@@ -24,20 +24,21 @@
 
 .background-image{
   background-image: image-url('COFFEE0I9A8933.jpg');
-
   background-size: cover;
-  min-height: auto;
+  min-height: 100vh;
   background-position: center center;
 }
 
 .body{
   background: rgba(255,255,255,0.8);
   background-size: cover;
-  min-height: 110vh;
+  min-height: 100vh;
 }
 
-footer{
-
+.footer{
+  position: sticky;
+  width: 100%;
+  padding-bottom: 20px;
   background-color: #663300;
 }
 
@@ -125,3 +126,5 @@ nav{
 .text-small{
   margin: 2;
 }
+
+
